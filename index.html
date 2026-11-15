@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>DireStraits</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <!-- Shown while we check for an existing session -->
+  <main id="view-loading" class="center">
+    <div class="spinner" aria-label="Loading"></div>
+  </main>
+
+  <!-- Shown when Supabase isn't configured yet -->
+  <main id="view-setup" class="center" hidden>
+    <section class="card">
+      <h1 class="brand">DireStraits</h1>
+      <p class="muted">Login isn't configured yet. Add your Supabase project URL and anon key to <code>config.js</code>. See the README for steps.</p>
+    </section>
+  </main>
+
+  <!-- Login -->
+  <main id="view-login" class="center" hidden>
+    <section class="card">
+      <h1 class="brand">DireStraits</h1>
+      <p class="muted">Private workspace. Sign in to continue.</p>
+
+      <form id="login-form" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="username" required>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required>
+
+        <button id="login-btn" type="submit">Sign in</button>
+        <p id="login-msg" class="msg" role="alert"></p>
+      </form>
+
+      <button id="forgot-btn" class="link" type="button">Forgot password?</button>
+      <p class="fine">Access is by invitation only.</p>
+    </section>
+  </main>
+
+  <!-- Set a new password (after following a reset or invite link) -->
+  <main id="view-reset" class="center" hidden>
+    <section class="card">
+      <h1 class="brand">DireStraits</h1>
+      <p class="muted">Choose a new password.</p>
+      <form id="reset-form" novalidate>
+        <label for="new-password">New password</label>
+        <input id="new-password" type="password" autocomplete="new-password" minlength="8" required>
+        <button type="submit">Save password</button>
+        <p id="reset-msg" class="msg" role="alert"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Signed-in app -->
+  <div id="view-app" hidden>
+    <header class="topbar">
+      <span class="brand small">DireStraits</span>
+      <div class="user">
+        <span id="user-email" class="muted"></span>
+        <button id="logout-btn" class="ghost" type="button">Sign out</button>
+      </div>
+    </header>
+
+    <main class="app">
+      <h2>Welcome</h2>
+      <p class="muted">Your VC fundraising workspace. Modules below are placeholders and will be built out next.</p>
+
+      <div class="grid">
+        <article class="tile"><h3>Investors</h3><p class="muted">Partners, firms and contact history.</p><span class="tag">Coming soon</span></article>
+        <article class="tile"><h3>Network map</h3><p class="muted">Visual graph of warm intros and relationships.</p><span class="tag">Coming soon</span></article>
+        <article class="tile"><h3>Pipeline</h3><p class="muted">Track each conversation from intro to term sheet.</p><span class="tag">Coming soon</span></article>
+        <article class="tile"><h3>Insights</h3><p class="muted">Check sizes, sectors, stages and fit.</p><span class="tag">Coming soon</span></article>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
