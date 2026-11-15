@@ -20,7 +20,7 @@ It's a static site hosted on GitHub Pages, with logins handled by [Supabase](htt
 3. Go to **Authentication → URL Configuration**:
    - Set **Site URL** to your Pages URL, e.g. `https://charlestwitchell.github.io/direstraits/`
    - Add the same URL under **Redirect URLs**.
-4. Go to **Project Settings → API** and copy the **Project URL** and the **anon public** key into `config.js`.
+4. Go to **Project Settings → API** and copy the **Project URL** and the **publishable** (or legacy **anon**) key into `config.js`.
    Never use the `service_role` key in this repo.
 
 ### 2. Invite users
